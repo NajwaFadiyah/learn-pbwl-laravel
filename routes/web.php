@@ -25,10 +25,16 @@ Route::get('array', function () {
 
     // Infinite loop (perulangan yang tidak akan berhenti karena bernilai true)
     // Tentukan nilai falsenya agar berhenti
-    $nilai_awal = 1;
-    while ($nilai_awal <= 5) {
-        echo 'SELAMAT DATANG ' . $nilai_awal . 'x <br>';
-        // Nilai awal bertambah 1
-        $nilai_awal++;
+    // $nilai_awal = 1;
+    // while ($nilai_awal <= 5) {
+    //     echo 'SELAMAT DATANG ' . $nilai_awal . 'x <br>';
+    //     // Nilai awal bertambah 1
+    //     $nilai_awal++;
+    // }
+
+    // Contoh penggunaan for
+
+    for ($i = 0; $i < 5; $i++) {
+        echo 'Selamat ' . $i . 'x <br>';
     }
 });
