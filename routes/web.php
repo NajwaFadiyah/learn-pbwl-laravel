@@ -7,7 +7,11 @@ Route::get('/', function () {
 });
 
 Route::get('mhs', function () {
-    return view('mahasiswa');
+    $nim = [1009, 1010, 1027, 3127, 3128];
+    $nama = ['Najwa', 'Tri', 'Tiara', 'Yayi', 'Rosita'];
+    // untuk menghitung jumlah data pada array count($nim)
+    $jumlah = count($nim);
+    return view('mahasiswa', compact('nim', 'nama', 'jumlah'));
 });
 
 Route::get('abt', function () {

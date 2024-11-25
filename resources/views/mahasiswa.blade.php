@@ -38,7 +38,7 @@
 </nav>
 <div class="container">
   <h1> Ini adalah halaman Mahasiswa </h1>
-  <table class="table table-warning table-sm table-hover table-striped table-bordered">
+  <table class="table table-warning table-sm table-hover table-striped table-bordered text-center">
     <thead>
       <tr>
         <th> NIM </th>
@@ -49,27 +49,19 @@
       </tr>
     </thead>
     <tbody>
+      {{-- Menggunakan WHILE dengan BLADE --}}
+      {{-- Perintahnya b:while --}}
+      <?php $nilai_awal = 0; ?>
+      @while ($nilai_awal < $jumlah)
       <tr>
-        <td> 0702225511 </td>
-        <td> Erika Putri </td>
+        <td> {{ $nim[$nilai_awal] }} </td>
+        <td> {{ $nama[$nilai_awal]}} </td>
         <td> Perempuan </td>
         <td> 23 Desember 2027 </td>
         <td> Kota Medan </td>
       </tr>
-      <tr>
-        <td> 0702921010 </td>
-        <td> Ziyaah Amelia </td>
-        <td> Perempuan </td>
-        <td> 12 Februari 2027 </td>
-        <td> Medan </td>
-      </tr>
-      <tr>
-        <td> 0702291033 </td>
-        <td> Jessica Jelita </td>
-        <td> Perempuan </td>
-        <td> 31 Oktober 2027 </td>
-        <td> Medan </td>
-      </tr>
+      <?php $nilai_awal++ ?>
+      @endwhile
     </tbody>
   </table>
 </div>
