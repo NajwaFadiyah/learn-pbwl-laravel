@@ -44,4 +44,4 @@ use Illuminate\Support\Facades\Route;
 //     }
 // });
 
-Route::resource('mahasiswa', mahasiswaController::class);
+Route::resource('/', mahasiswaController::class);

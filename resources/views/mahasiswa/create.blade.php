@@ -39,57 +39,75 @@
     </div>
   </nav>
   <div class="container">
-    <h1> Ini Adalah Halaman Tambah Mahasiswa </h1>
+    <h1> Halaman Tambah Mahasiswa </h1>
       <div class="col-sm-12">
         <h4>Form Mahasiswa</h4>
+
+        @if ($errors->any())
+            <div class="pt-3">
+              <div class="alert alert-danger">
+                <ul>
+                  @foreach ($errors->all() as $item)
+                      <li>{{ $item }}</li>
+                  @endforeach
+                </ul>
+              </div>
+            </div>
+        @endif
 
         {{-- Form itu ada action dan methodnya --}}
         {{-- Method ada 2 yaitu POST dan GET --}}
         {{-- Kalau action kosong maka akan diproses pada halaman yang sama --}}
         {{-- POST akan berfungsi nanti ketika menggunakan controller --}}
-        <form action="" method="GET">
+        <form action="/" method="POST">
+          @csrf
           <div class="row">
             <div class="col-sm-4">
               {{-- Input NIM --}}
               <label for=""> NIM </label>
-              <input type="number" name="nim" class="form-control" placeholder="Masukkan NIM">
+              <input type="number" name="nim" class="form-control" placeholder="Masukkan NIM" 
+              value="{{ Session::get('nim') }}">
             </div>
-            <div class="col-sm-8">
+            <div class="col-sm-4">
               {{-- Input Nama --}}
               <label for=""> Nama Mahasiswa </label>
-              <input type="text" name="nama_mahasiswa" class="form-control" placeholder="Masukkan Nama Mahasiswa">
+              <input type="text" name="nama_mahasiswa" class="form-control" placeholder="Masukkan Nama Mahasiswa"
+              value="{{ Session::get('nama_mahasiswa') }}">
             </div>
-          </div>
-          <div class="row">
             <div class="col-sm-4">
               {{-- Input Jenis Kelamin --}}
               <label for=""> Jenis Kelamin </label>
-              <div class="form-check">
-                <input type="radio" name="jenkel" id="perempuan" class="form-check-input" value="Perempuan">
-                <label class="form-check-label" for="perempuan"> Perempuan</label>
-              </div>
-              <div class="form-check">
-                <input type="radio" name="jenkel" id="lk" class="form-check-input" value="Laki - Laki">
-                <label class="form-check-label" for="lk"> Laki - Laki </label>
-              </div>
-            </div>
-            <div class="col-sm-4">
-              {{-- Input Tanggal Lahir --}}
-              <label for=""> Tanggal Lahir </label>
-              <input type="date" name="tl_lahir" id="" class="form-control">
-            </div>
-            <div class="col-sm-4">
-              {{-- Input Alamat --}}
-              <label for=""> Alamat </label>
-              <input type="text" name="alamat" id="" class="form-control">
+              <select name="jk" id="" class="form-select">
+                <option> L </option>
+                <option> P </option>
+              </select>
             </div>
           </div>
-          <div class="row mt-2">
-            <div class="col-sm-6">
-              <button class="btn btn-success" style="width: 100%" type="submit"> Simpan </button>
+          <div class="row">
+            <div class="col-sm-8">
+              <div class="row">
+                <div class="col-sm-5">
+                  {{-- Input Tanggal Lahir --}}
+                  <label for=""> Tanggal Lahir </label>
+                  <input type="date" name="tgl_lahir" id="" class="form-control" 
+                  value="{{ Session::get('tgl_lahir') }}">
+                </div>
+                <div class="col-sm-7">
+                  <label for=""> Alamat </label>
+                  <input type="text" name="alamat" id="" class="form-control" placeholder="Input Alamat"
+                  value="{{ Session::get('alamat') }}">
+                </div>
+              </div>
             </div>
-            <div class="col-sm-6">
-              <a href="/mahasiswa" class="btn btn-warning" style="width: 100%"> Kembali </a>
+            <div class="col-sm-4">
+              <div class="row mt-4">
+                <div class="col-sm-6">
+                  <button class="btn btn-success" style="width: 100%" type="submit"> Simpan </button>
+                </div>
+                <div class="col-sm-6">
+                  <a href="/" class="btn btn-warning" style="width: 100%"> Kembali </a>
+                </div>
+              </div>
             </div>
           </div>
         </form>
