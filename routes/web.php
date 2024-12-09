@@ -1,6 +1,6 @@
 <?php
 
-use App\Http\Controllers\mahasiswaControl;
+use App\Http\Controllers\mahasiswaController;
 use Illuminate\Support\Facades\Route;
 
 // Route::get('/', function () {
@@ -44,4 +44,4 @@ use Illuminate\Support\Facades\Route;
 //     }
 // });
 
-Route::get('/', [mahasiswaControl::class, 'index']);
+Route::resource('mahasiswa', mahasiswaController::class);

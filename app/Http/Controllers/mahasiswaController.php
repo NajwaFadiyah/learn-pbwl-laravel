@@ -11,7 +11,7 @@ class mahasiswaController extends Controller
      */
     public function index()
     {
-        //
+        return view('mahasiswa/mahasiswa');
     }
 
     /**
@@ -19,7 +19,7 @@ class mahasiswaController extends Controller
      */
     public function create()
     {
-        //
+        return view('mahasiswa/create');
     }
 
     /**
