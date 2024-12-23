@@ -67,6 +67,7 @@
       <table class="table table-warning table-sm table-hover table-striped table-bordered text-center">
         <thead>
           <tr>
+            <th> No </th>
             <th> NIM </th>
             <th> Nama Mahasiswa </th>
             <th> Jenis Kelamin </th>
@@ -75,9 +76,21 @@
           </tr>
         </thead>
         <tbody>
+          {{-- <//?php //$no=1; ?> --}}
+          @foreach ($mahasiswa as $m)
+              <tr>
+                <td>{{ $no++ }}</td>
+                <td>{{ $m->nim }}</td>
+                <td>{{ $m->nama_mahasiswa }}</td>
+                <td>{{ $m->jk }}</td>
+                <td>{{ $m->tgl_lahir }}</td>
+                <td>{{ $m->alamat }}</td>
+              </tr>
+          @endforeach
+
           {{-- Menggunakan WHILE dengan BLADE --}}
           {{-- Perintahnya b:while --}}
-          <?php //$nilai_awal = 0; ?>
+          {{-- <//?php //$nilai_awal = 0; ?> --}}
           {{-- @while ($nilai_awal < $jumlah)
           <tr>
             <td> {{ $nim[$nilai_awal] }} </td>
@@ -86,19 +99,19 @@
             <td> 23 Desember 2027 </td>
             <td> Kota Medan </td>
           </tr> --}}
-          <?//php $nilai_awal++ ?>
+          {{-- <//?//php $nilai_awal++ ?> --}}
           {{-- @endwhile --}}
     
           {{-- Menggunakan FOR dengan BLADE --}}
           {{-- Perintahnya b:for --}}
           {{-- @for ($i = 0; $i < $jumlah; $i++) --}}
-          <tr>
+          {{-- <tr> --}}
             {{-- <td> {{ $nim[$i] }} </td>
             <td> {{ $nama[$i]}} </td>
             <td> Perempuan </td>
             <td> 23 Desember 2027 </td>
             <td> Kota Medan </td> --}}
-          </tr>
+          {{-- </tr> --}}
           {{-- @endfor --}}
         </tbody>
       </table>
